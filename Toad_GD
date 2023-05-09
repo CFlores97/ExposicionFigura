@@ -1,0 +1,116 @@
+
+package toad;
+import java.util.Scanner;
+
+
+public class ExposicionFiguras {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        boolean running = true; 
+        
+        while (running){
+            
+            System.out.println("1. Toad");
+            System.out.println("2. Cubo de GD ");
+            System.out.println("3. Salir");
+            
+            int opcion = sc.nextInt();
+            
+            
+            switch (opcion){
+                case 1:
+                    int size = 17;
+                    for (int i = 1; i <= size ; i++){
+                        for (int j = 1; j <= size ; j++){
+                            if (i == 1 && (j > 4 && j < size-3)
+                                    || i >= 2 && i < 3 && ((j > 2 && j <= 5) || (j > 6 && j < size-1))
+                                    || i == 3 && ((j > 2 && j < 4) || (j > 6 && j < 13) || (j > 14 && j < size - 1))
+                                    || i == 4 && ((j > 1 && j < 3) || (j > 5 && j < 14)|| (j > 15 && j < size))
+                                    || i == 5 && ((j >= 1 && j < 3) || ( j > 4 && j <8)|| (j > 11 && j < 15)|| (j>15 && j <= size))
+                                    || i == 6 && ((j >=1 && j < 7) || (j > 12 && j <= size))
+                                    || i == 7 && ((j >= 1 && j <3 )||(j > 4 && j < 7) || (j > 12 && j < 16) || (j> 16 && j <= size))
+                                    || i == 8 && ((j >= 1 && j < 2)||(j >= 6 && j < 7) || (j > 12 && j < 15)|| ( j>16 && j <= size))
+                                    || i == 9 && ((j >= 1 && j < 2)||(j >= 6 && j <8)|| (j > 11 && j <14) || (j> 16 && j <= size))
+                                    || i == 10 && ((j >= 1 && j <3 ) || (j > 4 && j < 15) || (j > 16 && j <= 17))
+                                    || i > 4 && i != 5 && i != 6 && i != 7 && i != 8 && i != 9 && i != 10 && i < 12 && (j > 1 && j < size)
+                                    || i > 6 && i != 7 && i != 8 && i != 9 && i != 10 && i <= 11 && (j >= 1 && j <= size)
+                                    || i == 12 && ((j > 1 && j < 5) || (j > 6 && j < 8)||(j > 10 && j < 12) || (j > 13 && j < size))
+                                    || i == 13 && ((j > 2 && j < 4) || ( j > 6 && j < 8)|| (j > 10 && j < 12) || ( j > 14 && j < size - 1))
+                                    || i == 14 && ((j > 2 && j < 4) || (j > 14 && j < size - 1))
+                                    || i == 15 && ((j > 3 && j < 5)|| (j > 13 && j < size - 2))
+                                    || i >= 16 && i < 17 && (j > 4 && j < size-3))
+                            {
+                                System.out.print("█");
+                            }
+
+                            else
+                            {
+                                System.out.print("░");
+                            }
+
+                        }
+
+                        System.out.println();
+                    }
+                    
+                    break;
+                case 2:
+                    System.out.println("Ingrese la cantidad de columnas");
+                    int columnas= sc.nextInt();
+                    int cubo1=columnas/2;
+                    int contador=1;
+                    int filas=columnas+2;
+                    for(int i=1;i<=columnas;i++)
+                    {
+                        for(int j=1;j<=cubo1;j++)
+                        {
+                            System.out.print("*");
+                        }
+                        if(contador<=cubo1-2||contador>cubo1+2 )
+                        {
+                            for(int j=1;j<=cubo1-1;j++)
+                            {
+                                System.out.print("*");
+                            }
+                        }
+                        for(int c=1;c<=1;c++){
+                            System.out.print(" ");
+                        }
+                       if(contador>=cubo1 && contador<=cubo1+1)
+                       {
+                            for(int a=1;a<=cubo1-1;a++)
+                            {
+                                System.out.print("*"); 
+                            }
+                       }
+                       contador++;
+                       if(cubo1-1==i||cubo1+2==i)
+                       {
+                           for(int s=1;s<=cubo1-1;s++)
+                           {
+                               System.out.print(" ");
+                           }
+                       }
+                       for(int j=1;j<=cubo1;j++)
+                       {
+                                System.out.print("*");
+                       }
+                       System.out.println("");
+                    }
+                
+
+                    break;
+                    
+                case 3:
+                    running = false; 
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+        }
+    }
+    
+}
